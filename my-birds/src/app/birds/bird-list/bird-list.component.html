@@ -1,8 +1,11 @@
 <div class="container-fluid">
   <div class="card-deck">
-    <app-bird-card [bird]="birdsArray[0]"></app-bird-card>
-    <app-bird-card [bird]="birdsArray[1]"></app-bird-card>
-    <app-bird-card [bird]="birdsArray[2]"></app-bird-card>
+    <app-bird-card [bird]="birdsArray[0]"
+    (birdClicked)="parentFunctionHandler($event)"></app-bird-card>
+    <app-bird-card [bird]="birdsArray[1]"
+    (birdClicked)="parentFunctionHandler($event)"></app-bird-card>
+    <app-bird-card [bird]="birdsArray[2]"
+    (birdClicked)="parentFunctionHandler($event)"></app-bird-card>
   </div>
 </div>
 

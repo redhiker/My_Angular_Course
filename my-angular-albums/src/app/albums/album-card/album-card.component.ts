@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 import { Album } from '../album.model';
 
@@ -12,13 +12,17 @@ export class AlbumCardComponent implements OnInit {
   @Input()
  album: Album;
 
+ @Output()
+ albumClicked: EventEmitter<Album> = new EventEmitter<Album>();
+
   constructor() { }
 
   ngOnInit() {
   }
 
   showAlbum() {
-    alert('Album selected: ' + this.album.albumName);
+    this.albumClicked.emit(this.album);
   }
+
 
 }

@@ -40,4 +40,8 @@ export class BirdListComponent implements OnInit {
     ];
   }
 
+  parentFunctionHandler(bird) {
+    alert('Bird ' + bird.name + ' was sent from the album card component');
+}
+
 }
