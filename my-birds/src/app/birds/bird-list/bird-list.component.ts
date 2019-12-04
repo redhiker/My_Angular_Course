@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Bird } from '../bird.model';
 
-import { BIRDS } from "../birds.data";
+import { BirdService } from "../shared/bird.service";
 
 @Component({
   selector: 'app-bird-list',
@@ -13,15 +13,18 @@ export class BirdListComponent implements OnInit {
 
   birdsArray: Bird[];
 
-  constructor() { }
+  constructor(private birdService : BirdService) { }
+
+  getBirds() {
+    this.birdsArray = this.birdService.getBirds();
+  }
 
   ngOnInit() {
-
-    this.birdsArray = BIRDS;
+    this.getBirds();
   }
 
   parentFunctionHandler(bird) {
     alert('Bird ' + bird.name + ' was sent from the album card component');
-}
+  }
 
 }
