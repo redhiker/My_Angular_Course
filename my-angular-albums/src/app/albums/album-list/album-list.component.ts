@@ -17,7 +17,7 @@ export class AlbumListComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.albumsArray = this.albumsArray = ALBUMS;
+    this.albumsArray = ALBUMS;
 
     console.log(this.albumsArray);
   }
