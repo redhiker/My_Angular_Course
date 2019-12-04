@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { Album } from "../album.model";
 
-import { ALBUMS } from "../albums.data";
+import { AlbumService } from "../shared/album.service";
 
 @Component({
   selector: 'app-album-list',
@@ -13,13 +13,14 @@ export class AlbumListComponent implements OnInit {
 
   albumsArray: Album[];
 
-  constructor() { }
+  constructor(private albumService: AlbumService) { }
 
-  ngOnInit(): void {
+  getAlbums() {
+    this.albumsArray = this.albumService.getAlbums();
+  }
 
-    this.albumsArray = ALBUMS;
-
-    console.log(this.albumsArray);
+  ngOnInit() {
+    this.getAlbums();
   }
 
   parentFunctionHandler(album) {

@@ -1,4 +1,6 @@
-<div class="card"><div class="inner"><img
+<div class="card"
+[ngStyle]="{ 'background-color': album.onSale ? '#93df93' : '' }">
+  <div class="inner"><img
   class="card-img-top cover"
   src = "assets/img/{{ album.id }}.jpg"
   alt="{{album.albumName}}"
@@ -9,8 +11,14 @@
   <div class="scrollable"></div>
     <h6 class="card-title">{{ album.albumName }}</h6>
     <h6 class="card-text">Released: {{ album.releaseDate }}</h6>
-    <h6>{{ album.price }} {{ album.currency }}</h6>
-</div>
+    <h6>
+        <span *ngIf="album.onSale" style="text-decoration:line-through;">
+          {{album.price | number:'1.1-2' | currency:album.currency}}
+        </span>
+        {{ (album.onSale ? newPrice : album.price) | number:'1.2-2' |
+        currency:album.currency }}
+      </h6>
+</div></div>
 <div class="card-footer">
     <img
     *ngIf="album.onSale"
@@ -20,4 +28,4 @@
   <button class="btn btn-primary float-right" (click)="showAlbum()">
     See Details
   </button>
-</div></div>
+</div>
