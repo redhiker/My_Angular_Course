@@ -1,11 +1,11 @@
 <div class="container-fluid">
   <div class="card-deck">
-    <app-bird-card [bird]="birdsArray[0]"
-    (birdClicked)="parentFunctionHandler($event)"></app-bird-card>
-    <app-bird-card [bird]="birdsArray[1]"
-    (birdClicked)="parentFunctionHandler($event)"></app-bird-card>
-    <app-bird-card [bird]="birdsArray[2]"
-    (birdClicked)="parentFunctionHandler($event)"></app-bird-card>
+
+  <app-bird-card
+    *ngFor="let bird of birdsArray"
+  [bird]="bird"
+  (birdClicked)="parentFunctionHandler($event)"></app-bird-card>
+
   </div>
 </div>
 
