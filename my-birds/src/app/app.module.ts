@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BirdListComponent } from './birds/bird-list/bird-list.component';
 import { BirdCardComponent } from './birds/bird-card/bird-card.component';
+import { WelcomeComponent } from './welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BirdListComponent,
-    BirdCardComponent
+    BirdCardComponent,
+    WelcomeComponent
   ],
   imports: [
     BrowserModule,
