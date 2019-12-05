@@ -4,7 +4,8 @@
   alt="{{bird.name}}"
   style="border: 1px solid grey"
 /></div>
-<div class="card-body">
+<div class="card-body"
+[ngStyle]="{ 'background-color': (bird.kind === 'Songbird') ? '#93df93' : '' }">
   <h5 class="card-title">{{ bird.name }}</h5>
   <div class="scrollable">
     <h6 class="card-title">{{ bird.kind }}</h6>
