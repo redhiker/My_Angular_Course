@@ -4,6 +4,8 @@ import { Album } from "../album.model";
 
 import { AlbumService } from "../shared/album.service";
 
+import { from, Observable } from "rxjs";
+
 @Component({
   selector: 'app-album-list',
   templateUrl: './album-list.component.html',
@@ -11,16 +13,13 @@ import { AlbumService } from "../shared/album.service";
 })
 export class AlbumListComponent implements OnInit {
 
-  albumsArray: Album[];
+  albumsArray: Observable<Album[]>;
 
   constructor(private albumService: AlbumService) { }
 
   getAlbums() {
-    this.albumService.getAlbums()
-    .subscribe(
-        albums => this.albumsArray = albums,
-        error => console.log("Error: ", error));
-  }
+    this.albumsArray = this.albumService.getAlbums();
+}
 
   ngOnInit() {
     this.getAlbums();
