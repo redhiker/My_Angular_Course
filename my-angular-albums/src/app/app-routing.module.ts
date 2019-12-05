@@ -9,7 +9,13 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   { path: "", redirectTo: "/welcome", pathMatch: "full" },
-  { path: "about", component: AboutComponent },
+  { path: "about",
+    loadChildren: () => import('./about/about.module')
+    .then(mod => {
+      console.log('in promise loaodChildren');
+      return mod.AboutModule;
+    })
+  },
   { path: "welcome", component: WelcomeComponent },
   { path: "albums", component: AlbumListComponent },
   { path: "**", component: NotfoundComponent, pathMatch: "full" }
