@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { from, Observable } from "rxjs";
+
 import { Bird } from '../bird.model';
 
 import { BirdService } from "../shared/bird.service";
@@ -11,13 +13,13 @@ import { BirdService } from "../shared/bird.service";
 })
 export class BirdListComponent implements OnInit {
 
-  birdsArray: Bird[];
+  birdsArray: Observable<Bird[]>;
 
-  constructor(private birdService : BirdService) { }
+  constructor(private birdService: BirdService) { }
 
   getBirds() {
     this.birdsArray = this.birdService.getBirds();
-  }
+}
 
   ngOnInit() {
     this.getBirds();

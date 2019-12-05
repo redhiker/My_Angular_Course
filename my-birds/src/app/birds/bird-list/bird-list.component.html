@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="card-deck">
   <app-bird-card
-    *ngFor="let bird of birdsArray"
+    *ngFor="let bird of birdsArray | async"
   [bird]="bird"
   (birdClicked)="parentFunctionHandler($event)">
   </app-bird-card>
