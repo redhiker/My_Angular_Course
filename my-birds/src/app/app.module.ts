@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { BirdListComponent } from './birds/bird-list/bird-list.component';
 import { BirdCardComponent } from './birds/bird-card/bird-card.component';
 import { WelcomeComponent } from './welcome/welcome.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     BirdListComponent,
     BirdCardComponent,
-    WelcomeComponent
+    WelcomeComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
