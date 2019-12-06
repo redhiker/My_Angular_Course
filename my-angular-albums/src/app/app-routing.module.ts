@@ -6,6 +6,7 @@ import { AlbumListComponent } from './albums/album-list/album-list.component';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 
 const routes: Routes = [
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: "welcome", component: WelcomeComponent },
   {
     path: "albums", //Angular 8 Notation with Promise
+    canActivate: [AuthGuard],
     loadChildren: () => import('./albums/albums.module')
       .then(mod => {
         console.log('in promise loadChildren');
