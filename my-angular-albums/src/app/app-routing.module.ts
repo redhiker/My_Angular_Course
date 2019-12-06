@@ -17,7 +17,14 @@ const routes: Routes = [
     })
   },
   { path: "welcome", component: WelcomeComponent },
-  { path: "albums", component: AlbumListComponent },
+  {
+    path: "albums", //Angular 8 Notation with Promise
+    loadChildren: () => import('./albums/albums.module')
+      .then(mod => {
+        console.log('in promise loadChildren');
+        return mod.AlbumsModule;
+      }),
+  },
   { path: "**", component: NotfoundComponent, pathMatch: "full" }
 ];
 
